@@ -263,6 +263,36 @@ section.alt-bg { background: var(--white); }
 .im { background: #FCE7F3; color: #DB2777; }
 
 .new { display: inline-block; background: var(--orange); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.5px; }
+.upcoming { display: inline-block; background: var(--blue); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.5px; }
+
+/* ─── GANTT CHART ─── */
+.gantt-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-top: 24px; overflow-x: auto; }
+.gantt-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 18px; }
+.gantt-chart { position: relative; min-width: 700px; }
+.gantt-row { display: flex; align-items: center; margin-bottom: 6px; }
+.gantt-label { width: 180px; flex-shrink: 0; font-size: 13px; font-weight: 500; color: var(--gray-700); padding-right: 12px; text-align: right; }
+.gantt-track { flex: 1; height: 28px; position: relative; background: var(--gray-50); border-radius: 4px; }
+.gantt-bar { position: absolute; height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; letter-spacing: 0.3px; }
+.gantt-bar.milestone { background: var(--maroon); }
+.gantt-bar.activity { background: var(--orange); opacity: 0.9; }
+.gantt-months { display: flex; margin-left: 180px; margin-bottom: 8px; }
+.gantt-months span { flex: 1; font-size: 11px; color: var(--gray-400); font-weight: 500; text-align: center; }
+
+/* ─── DATA DICTIONARY ─── */
+.dd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.dd-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px 24px; }
+.dd-card h4 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--maroon); margin-bottom: 4px; }
+.dd-card .dd-aka { font-size: 12px; color: var(--gray-400); margin-bottom: 8px; font-style: italic; }
+.dd-card p { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; }
+
+/* ─── LFA CHAIN ─── */
+.lfa-chain { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-top: 24px; overflow-x: auto; }
+.lfa-chain-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 16px; }
+.lfa-chain-flow { display: flex; align-items: stretch; gap: 0; min-width: 800px; justify-content: center; }
+.lfa-node { flex: 1; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 16px; text-align: center; position: relative; }
+.lfa-node h5 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.lfa-node p { font-size: 11.5px; color: var(--gray-500); line-height: 1.5; }
+.lfa-arrow { display: flex; align-items: center; color: var(--gray-300); font-size: 18px; padding: 0 4px; }
 
 /* ─── FLOWCHART ─── */
 .fc { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 32px; overflow-x: auto; }
@@ -382,6 +412,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
   <a href="#compliance">Compliance</a>
   <a href="#ai">AI &amp; MCP</a>
   <a href="#integrations">Integrations</a>
+  <a href="#glossary">Data Dictionary</a>
   <a href="#platform">Platform</a>
 </nav>
 
@@ -439,7 +470,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <div class="cd fade-up"><div class="ic ig">&#x1F4DD;</div><h3>Proposal Pipeline</h3>
     <ul><li>Submit proposals to donors — tracked through stages</li><li>Lead &#x2192; Submitted &#x2192; Under Review &#x2192; Shortlisted &#x2192; MoU Signed</li><li>Converted MoUs become <strong>Grants</strong>; rest stay in pipeline</li><li>Document management per proposal (attachments, versions)</li><li>Full funnel tracking: submitted, in progress, converted, lost</li></ul></div>
     <div class="cd fade-up"><div class="ic im">&#x1F4E7;</div><h3>Donor Engagement</h3>
-    <ul><li>Communication log — emails, calls, meetings per donor</li><li>Automated reminders for follow-ups and deadlines</li><li>Donor engagement scoring based on interactions</li><li>80G receipt generation for donors <span class="new">NEW</span></li></ul></div>
+    <ul><li>Communication log — emails, calls, meetings per donor</li><li>Automated reminders for follow-ups and deadlines</li><li>Donor engagement scoring based on interactions <span class="upcoming">UPCOMING</span></li><li>80G receipt generation for donors <span class="upcoming">UPCOMING</span></li></ul></div>
   </div>
 </div>
 </section>
@@ -480,7 +511,13 @@ footer a { color: var(--orange-light); text-decoration: none; }
   <p>Define the budget structure within each grant and allocate amounts:</p>
   <ul>
     <li><strong>Budget Heads</strong> — Personnel, Travel, Programme Costs, Communication, etc.</li>
-    <li><strong>Sub-Budget Heads</strong> — Granular line items under each head</li>
+    <li><strong>Sub-Budget Heads</strong> — Granular line items under each head. Examples:
+        <ul>
+          <li><strong>Personnel</strong> → Project Coordinator Salary, Trainer Salary, Field Worker Salary</li>
+          <li><strong>Travel</strong> → Local Travel, Inter-City Travel, Field Visit Conveyance</li>
+          <li><strong>Programme Costs</strong> → Training Materials, Workshop Venue, Participant Refreshments</li>
+        </ul>
+      </li>
     <li><strong>Dual-head system:</strong>
       <ul>
         <li><strong>Donor budget heads</strong> — As defined by each donor (e.g., Donor 1: "Travel", Donor 2: "Travel and Stay")</li>
@@ -500,8 +537,8 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <li><strong>Path 1 — Aggregate Reporting:</strong> Manual monthly entry of utilisation against donor/grant/MoU budget heads</li>
     <li><strong>Path 2 — Financial System Integration:</strong> Auto-sync from accounting software
       <ul>
-        <li>Supported: <strong>Tally</strong>, <strong>VOLAC</strong></li>
-        <li>Architecture supports Oracle, ERP, or any system via canonical schema</li>
+        <li>Supported: <strong>Tally</strong>, <strong>VOLAC</strong>, <strong>SAP</strong></li>
+        <li>Architecture supports Oracle, ERP, or any financial system via canonical schema</li>
         <li>Master data sync: Funding Agency &#x2192; Project &#x2192; Budget Head &#x2192; Sub-Budget Head &#x2192; Allocation</li>
         <li>Monthly expense utilisation + fund receipts synced automatically</li>
       </ul>
@@ -554,15 +591,63 @@ footer a { color: var(--orange-light); text-decoration: none; }
     </div>
   </div>
 
-  <div class="cg">
+  <!-- GANTT CHART VISUAL -->
+  <div class="gantt-wrap fade-up">
+    <div class="gantt-title">Milestone &amp; Activity Timeline (Illustrative Gantt View)</div>
+    <div class="gantt-chart">
+      <div class="gantt-months"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div>
+      <div class="gantt-row"><div class="gantt-label">M1: Baseline Survey</div><div class="gantt-track"><div class="gantt-bar milestone" style="left:0%;width:22%;">Apr – May</div></div></div>
+      <div class="gantt-row"><div class="gantt-label" style="font-size:12px;color:var(--gray-500);padding-left:10px;">↳ Design survey tool</div><div class="gantt-track"><div class="gantt-bar activity" style="left:0%;width:11%;">Apr</div></div></div>
+      <div class="gantt-row"><div class="gantt-label" style="font-size:12px;color:var(--gray-500);padding-left:10px;">↳ Conduct field survey</div><div class="gantt-track"><div class="gantt-bar activity" style="left:11%;width:11%;">May</div></div></div>
+      <div class="gantt-row"><div class="gantt-label">M2: Training Programme</div><div class="gantt-track"><div class="gantt-bar milestone" style="left:22%;width:33%;">Jun – Aug</div></div></div>
+      <div class="gantt-row"><div class="gantt-label" style="font-size:12px;color:var(--gray-500);padding-left:10px;">↳ Trainer onboarding</div><div class="gantt-track"><div class="gantt-bar activity" style="left:22%;width:11%;">Jun</div></div></div>
+      <div class="gantt-row"><div class="gantt-label" style="font-size:12px;color:var(--gray-500);padding-left:10px;">↳ Conduct 10 training batches</div><div class="gantt-track"><div class="gantt-bar activity" style="left:33%;width:22%;">Jul – Aug</div></div></div>
+      <div class="gantt-row"><div class="gantt-label">M3: Impact Assessment</div><div class="gantt-track"><div class="gantt-bar milestone" style="left:67%;width:22%;">Oct – Nov</div></div></div>
+      <div class="gantt-row"><div class="gantt-label" style="font-size:12px;color:var(--gray-500);padding-left:10px;">↳ Endline data collection</div><div class="gantt-track"><div class="gantt-bar activity" style="left:67%;width:11%;">Oct</div></div></div>
+      <div class="gantt-row"><div class="gantt-label" style="font-size:12px;color:var(--gray-500);padding-left:10px;">↳ Analysis &amp; report writing</div><div class="gantt-track"><div class="gantt-bar activity" style="left:78%;width:11%;">Nov</div></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:14px;">Activities fall within their parent milestone's start and end dates. When all activities under a milestone are completed, the milestone is marked complete.</p>
+  </div>
+
+  <!-- LFA RESULTS CHAIN -->
+  <div class="lfa-chain fade-up">
+    <div class="lfa-chain-title">Logical Framework: Results Chain</div>
+    <div class="lfa-chain-flow">
+      <div class="lfa-node" style="border-left:3px solid var(--orange);">
+        <h5 style="color:var(--orange);">Activities</h5>
+        <p>Conduct 10 training batches for 200 teachers</p>
+      </div>
+      <div class="lfa-arrow">&#x2794;</div>
+      <div class="lfa-node" style="border-left:3px solid var(--green);">
+        <h5 style="color:var(--green);">Outputs</h5>
+        <p>200 teachers trained on new pedagogy methods</p>
+      </div>
+      <div class="lfa-arrow">&#x2794;</div>
+      <div class="lfa-node" style="border-left:3px solid var(--blue);">
+        <h5 style="color:var(--blue);">Outcomes</h5>
+        <p>30% improvement in classroom teaching quality scores</p>
+      </div>
+      <div class="lfa-arrow">&#x2794;</div>
+      <div class="lfa-node" style="border-left:3px solid #7C3AED;">
+        <h5 style="color:#7C3AED;">Impact</h5>
+        <p>Improved learning outcomes for 5,000 students</p>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:14px;">Activities produce Outputs → Outputs drive Outcomes → Outcomes contribute to long-term Impact. Each level is measurable via KPIs defined in the KPI Master.</p>
+  </div>
+
+  <div class="cg" style="margin-top:24px;">
     <div class="cd fade-up"><div class="ic ip">&#x1F4D6;</div><h3>KPI Master</h3>
     <ul><li>Central library of all KPIs, tagged to thematic areas</li><li>When a grant is created for a theme (e.g., Health), only relevant KPIs appear</li><li>Selected KPIs flow into planning and reporting modules</li><li>KPIs mapped to: Activities, Outputs, Outcomes, Impact</li></ul></div>
 
     <div class="cd fade-up"><div class="ic ig">&#x1F4CB;</div><h3>Planning Module</h3>
-    <ul><li>Define targets/plan for each selected KPI</li><li>Milestones = a defined set of Activities</li><li>Activities lead to Outputs; Outputs lead to Outcomes</li><li>Planning aligned to grant reporting frequency</li></ul></div>
+    <ul><li>Define targets/plan for each selected KPI</li><li>Milestones = a defined set of Activities with start &amp; end dates</li><li>Activities lead to Outputs; Outputs lead to Outcomes</li><li>Planning aligned to grant reporting frequency</li></ul></div>
 
     <div class="cd fade-up"><div class="ic ib">&#x1F4CA;</div><h3>Achievement Reporting — Two Paths</h3>
-    <ul><li><strong>Path A — Aggregate:</strong> Manual entry of achievement numbers</li><li><strong>Path B — Mobile App (mForm):</strong> Beneficiary forms, intervention forms, activity forms, training forms &#x2192; KPI auto-calculated</li><li>Configurable per KPI: e.g., 10 KPIs — 7 aggregate, 3 from mForm</li><li>Native mForm; architecture supports SurveyCTO, ODK, KoboToolbox</li></ul></div>
+    <ul><li><strong>Path A — Aggregate:</strong> Manual entry of achievement numbers</li><li><strong>Path B — Beneficiary MIS / Programme MIS Integration:</strong> Connect your existing field data collection system — beneficiary forms, intervention forms, activity forms, training forms &#x2192; KPI auto-calculated</li><li>Configurable per KPI: e.g., 10 KPIs — 7 aggregate, 3 from your Beneficiary MIS</li><li><strong>Native integration</strong> with mForm (Dhwani's mobile data collection app)</li><li><strong>Any Programme MIS:</strong> Architecture supports SurveyCTO, ODK, KoboToolbox, CommCare, and other field data collection tools via API</li></ul></div>
+
+    <div class="cd fade-up"><div class="ic iy">&#x2699;</div><h3>Activity Tracking — Qualitative &amp; Quantitative</h3>
+    <ul><li><strong>Qualitative (Yes/No):</strong> Activity treated as a checklist item — "Was the workshop conducted?" with a due date and completion status</li><li><strong>Quantitative:</strong> Activity has a measurable target — e.g., "Train 200 teachers" with progress tracking (completed 50, 120, 200)</li><li>Both modes supported per activity within the same grant — some activities may be yes/no while others track numbers</li><li>Flexible configuration per KPI and per activity at the grant level</li></ul></div>
   </div>
 </div>
 </section>
@@ -642,6 +727,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <li><strong>Escalation logic:</strong> If no action taken, escalate to next approval level</li>
     <li><strong>Notification routing:</strong> Role-specific alerts (e.g., Budget Utilisation submitted &#x2192; Manager + CEO + Finance)</li>
     <li><strong>In-app notifications:</strong> Bell icon in top bar mirrors email alerts</li>
+    <li><strong>Google Calendar sync:</strong> Sync report deadlines, tranche dates, and work plan due dates directly to your Google Calendar — never miss a deadline <span class="upcoming">UPCOMING</span></li>
   </ul>
   </div>
   </details>
@@ -657,6 +743,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <li>Single repository per project for all files</li>
     <li>Document generation with version control (MoU, LoA, Fund Letters, Board Notes)</li>
     <li>Template-driven, configurable, supports organisation branding</li>
+    <li><strong>Google Drive / OneDrive sync:</strong> Connect your existing cloud storage folders — pull documents from Google Drive or OneDrive into the grant file repository without duplicating files. No need to double-store information across systems <span class="upcoming">UPCOMING</span></li>
   </ul>
   </div>
   </details>
@@ -693,11 +780,14 @@ footer a { color: var(--orange-light); text-decoration: none; }
   <summary><span style="font-size:17px;">&#x1F465;</span> Resource Allocation &amp; Employee Management <span class="ch">&#x25B6;</span></summary>
   <div class="db">
   <ul>
-    <li><strong>Employee Master:</strong> People directory (or HRMS integration — Zoho People, greytHR, Keka)</li>
+    <li><strong>Employee Master:</strong> People directory (or HRMS integration — Zoho People, greytHR, Keka). Fetch employee records from your existing HR system</li>
     <li><strong>Grant anchor:</strong> Assign an owner/anchor per grant</li>
-    <li><strong>Resource planning:</strong> Define required roles per grant (e.g., 1 trainer, 1 mobiliser, 1 project coordinator)</li>
-    <li>Allocate employees from the master against these defined roles</li>
-    <li>Staff allocation tracking across grants — effort and utilisation monitoring</li>
+    <li><strong>Budget-derived HR requirements:</strong> The grant budget includes human resource cost line items (e.g., "Trainer Salary" under Personnel budget head). From these budget lines, the system derives what roles the grant requires — e.g., 2 Trainers, 1 Project Coordinator, 1 Mobiliser</li>
+    <li><strong>Role-to-person mapping:</strong> In the allocation module, map specific employees against each required role. E.g., "Trainer" role → assign Priya Sharma to this grant</li>
+    <li><strong>Partial / fractional allocation:</strong> For senior leadership and shared resources, allocate a percentage of time — e.g., 20% of a Programme Director's time to Grant A, 30% to Grant B, 50% to Grant C</li>
+    <li><strong>Available balance tracking:</strong> When allocating, the system shows the person's current allocation across all grants. You cannot allocate more than 100% of any person's time — prevents over-commitment</li>
+    <li><strong>Cross-grant resource view:</strong> See who is allocated where, at what percentage, across all active grants — a single view for leadership to manage capacity</li>
+    <li><strong>Hiring requirement forecast:</strong> If a grant has been approved and has a start date, but the required roles are unfilled, the system flags hiring requirements — giving HR a lead time to recruit before the grant begins <span class="upcoming">UPCOMING</span></li>
   </ul>
   </div>
   </details>
@@ -755,12 +845,12 @@ footer a { color: var(--orange-light); text-decoration: none; }
   <div class="cg">
     <div class="cd fade-up"><div class="ic ir">&#x1F4DC;</div><h3>FCRA Compliance</h3>
     <ul><li>FC vs. Non-FC fund segregation tracked in system</li><li>FC-4 annual return data preparation</li><li>FCRA renewal reminders in compliance calendar</li></ul></div>
-    <div class="cd fade-up"><div class="ic io">&#x1F3E2;</div><h3>CSR Compliance</h3>
-    <ul><li>CSR-2 form auto-population</li><li>Annual Action Plan (AAP) tracking</li><li>Admin expense cap monitoring (5% rule)</li><li>Schedule VII category tagging &amp; reporting</li></ul></div>
+    <div class="cd fade-up"><div class="ic io">&#x1F3E2;</div><h3>CSR Compliance <span style="font-size:11px;color:var(--gray-400);font-weight:400;margin-left:4px;">(Optional)</span></h3>
+    <ul><li>CSR-2 form auto-population</li><li>Annual Action Plan (AAP) tracking</li><li>Admin expense cap monitoring (5% rule)</li><li>Schedule VII category tagging &amp; reporting</li><li><em>Note:</em> CSR compliance is typically not applicable to non-profits directly. However, some corporates set up their own foundations (e.g., Axis Bank Foundation, Reliance Foundation) — these corporate foundations act on behalf of the CSR mandate and must meet CSR compliances. This module is optional and relevant for such entities</li></ul></div>
     <div class="cd fade-up"><div class="ic ig">&#x1F9FE;</div><h3>80G &amp; Tax Compliance</h3>
     <ul><li>80G receipt generation for donors</li><li>80G / 12A renewal reminders</li><li>Registration renewal tracking</li></ul></div>
     <div class="cd fade-up"><div class="ic ib">&#x1F50E;</div><h3>Audit &amp; Risk</h3>
-    <ul><li>Statutory audit preparation module</li><li>Internal audit checklists</li><li>Risk register per grant (underperformance, overspend, delays)</li><li>Compliance calendar for all renewals &amp; filings</li></ul></div>
+    <ul><li>Statutory audit preparation module — consolidate financial data, donor-wise utilisation, and compliance status for auditors</li><li>Internal audit checklists — configurable checklists for periodic self-assessments</li><li>Risk register per grant — track risks like underperformance, budget overspend, timeline delays, and donor relationship issues</li><li>Compliance calendar for all renewals &amp; filings (FCRA, 80G, 12A, CSR, etc.)</li><li><strong>AI-powered risk detection:</strong> Proactive alerts when spending patterns, KPI shortfalls, or timeline deviations indicate potential risks <span class="upcoming">UPCOMING</span></li><li><strong>AI audit insights:</strong> Auto-generated audit readiness score based on documentation completeness and compliance status <span class="upcoming">UPCOMING</span></li></ul></div>
   </div>
 </div>
 </section>
@@ -819,6 +909,111 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <div class="ic2"><div class="ii">&#x1F512;</div><h4>SSO</h4><p>Google Workspace &amp; Office 365 single sign-on</p></div>
     <div class="ic2"><div class="ii">&#x1F465;</div><h4>HRMS</h4><p>Zoho People, greytHR, Keka for employee master sync</p></div>
     <div class="ic2"><div class="ii">&#x1F4DD;</div><h4>Survey Tools</h4><p>SurveyCTO, ODK, KoboToolbox (architecture-ready)</p></div>
+    <div class="ic2"><div class="ii">&#x1F4B1;</div><h4>SAP <span class="new">NEW</span></h4><p>Financial integration — expense sync, fund receipts, budget master data via canonical schema</p></div>
+    <div class="ic2"><div class="ii">&#x1F4CA;</div><h4>Salesforce <span class="new">NEW</span></h4><p>Fundraising CRM integration — continue your donor pipeline in Salesforce while syncing grants into mGrant</p></div>
+  </div>
+</div>
+</section>
+
+<!-- DATA DICTIONARY -->
+<section id="glossary" class="alt-bg">
+<div class="ctn">
+  <div class="sh fade-up">
+    <div class="section-number">&#x1F4D6;</div>
+    <h2>Data Dictionary</h2>
+    <p>Key terms used in mGrant NUO explained in plain language — helpful for anyone new to the grants and non-profit space.</p>
+  </div>
+  <div class="dd-grid fade-up">
+    <div class="dd-card">
+      <h4>Donor / Funding Agency</h4>
+      <div class="dd-aka">Also called: Funder, Granting Body, Development Partner</div>
+      <p>The organisation or individual that provides financial support (grants) to the NGO. Could be a corporate CSR, a bilateral agency, a foundation, or a government body.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Proposal / Grant Application</h4>
+      <div class="dd-aka">Also called: Concept Note, Expression of Interest (EoI), RFP Response</div>
+      <p>A formal request submitted by the NGO to a donor seeking funding. It describes the problem, proposed solution, budget, and expected outcomes. Once approved and signed, it becomes a Project.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Project</h4>
+      <div class="dd-aka">Also called: Grant Project, Intervention</div>
+      <p>When a proposal is approved and the MoU is signed, it becomes a Project. A project could span multiple years and includes the full scope of work, budget, and deliverables committed to the donor.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Grant</h4>
+      <div class="dd-aka">Also called: Annual Grant, Grant Cycle</div>
+      <p>The yearly funding cycle within a multi-year project. A project running from 2024–2027 would have three grants — one for each financial year — each with its own budget, targets, and reporting requirements.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Programme</h4>
+      <div class="dd-aka">Also called: Thematic Programme, Vertical</div>
+      <p>A broad thematic area in which the NGO works (e.g., "Health Programme", "Education Programme"). A programme may have multiple projects under it, funded by different donors across different geographies.</p>
+    </div>
+    <div class="dd-card">
+      <h4>MoU / Agreement</h4>
+      <div class="dd-aka">Also called: Grant Agreement, Letter of Award (LoA), Sanction Letter</div>
+      <p>The legal document signed between the donor and the NGO that formalises the grant — detailing the amount, duration, deliverables, reporting obligations, and terms.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Budget Head</h4>
+      <div class="dd-aka">Also called: Cost Category, Line Item Category</div>
+      <p>A top-level category for organising project expenses — e.g., Personnel, Travel, Programme Costs, Communication, Administration. Each budget head contains multiple sub-budget heads.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Sub-Budget Head</h4>
+      <div class="dd-aka">Also called: Line Item, Budget Line</div>
+      <p>A specific expense item under a budget head. E.g., under "Personnel" → Project Coordinator Salary, Trainer Salary; under "Travel" → Local Travel, Inter-City Travel, Field Visit Conveyance.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Tranche</h4>
+      <div class="dd-aka">Also called: Instalment, Disbursement</div>
+      <p>A scheduled payment from the donor to the NGO. Grants are typically released in tranches — e.g., 40% upfront, 30% at mid-term, 30% on completion — tied to milestones or reporting compliance.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Utilisation</h4>
+      <div class="dd-aka">Also called: Expenditure, Spend, Burn Rate</div>
+      <p>The actual amount spent by the NGO against the sanctioned budget. Tracked at the budget head level and reported to the donor periodically (monthly or quarterly).</p>
+    </div>
+    <div class="dd-card">
+      <h4>KPI (Key Performance Indicator)</h4>
+      <div class="dd-aka">Also called: Indicator, Metric, Output Indicator</div>
+      <p>A measurable value that tracks whether the project is achieving its goals. E.g., "Number of teachers trained", "% improvement in learning outcomes", "Villages covered".</p>
+    </div>
+    <div class="dd-card">
+      <h4>LFA (Logical Framework Analysis)</h4>
+      <div class="dd-aka">Also called: LogFrame, Results Framework, Theory of Change</div>
+      <p>A structured planning and measurement framework: Activities → Outputs → Outcomes → Impact. Used by donors and NGOs to define what will be done, what will be produced, and what change is expected.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Milestone</h4>
+      <div class="dd-aka">Also called: Deliverable, Phase</div>
+      <p>A significant checkpoint in a project, typically comprising a group of activities. E.g., "Baseline Survey Completed", "All Training Batches Delivered". Has a defined start and end date.</p>
+    </div>
+    <div class="dd-card">
+      <h4>QPR / QFR</h4>
+      <div class="dd-aka">Also called: Progress Report, Financial Report</div>
+      <p>QPR = Quarterly Progress Report (programmatic achievements). QFR = Quarterly Fund Utilisation Report (financial spend). Both are standard reporting formats submitted to donors.</p>
+    </div>
+    <div class="dd-card">
+      <h4>FC / Non-FC</h4>
+      <div class="dd-aka">Also called: Foreign Contribution, Domestic Fund</div>
+      <p>FC = Foreign Contribution (funds received from outside India, regulated by FCRA). Non-FC = Domestic funding (Indian donors, CSR, government grants). Indian NGOs must maintain separate accounts for FC and Non-FC funds.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Sub-Grant / Sub-Project</h4>
+      <div class="dd-aka">Also called: Pass-Through Grant, Re-granting</div>
+      <p>When an NGO receives a large grant and distributes a portion to smaller partner NGOs for implementation. The primary NGO retains accountability to the donor while the sub-grantee executes on the ground.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Beneficiary</h4>
+      <div class="dd-aka">Also called: Participant, End User, Target Population</div>
+      <p>The individual or community directly served by the project. E.g., students receiving scholarships, farmers receiving training, women in SHGs. Tracked in the Beneficiary Registry.</p>
+    </div>
+    <div class="dd-card">
+      <h4>Beneficiary MIS / Programme MIS</h4>
+      <div class="dd-aka">Also called: Field Data System, M&amp;E System</div>
+      <p>A system used to collect and manage field-level data about beneficiaries and programme activities — e.g., mForm, SurveyCTO, CommCare. Data from these systems feeds into mGrant for KPI calculation.</p>
+    </div>
   </div>
 </div>
 </section>
