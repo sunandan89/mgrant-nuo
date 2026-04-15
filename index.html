@@ -294,6 +294,75 @@ section.alt-bg { background: var(--white); }
 .lfa-node p { font-size: 11.5px; color: var(--gray-500); line-height: 1.5; }
 .lfa-arrow { display: flex; align-items: center; color: var(--gray-300); font-size: 18px; padding: 0 4px; }
 
+/* ─── PIPELINE FUNNEL ─── */
+.funnel-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; overflow-x: auto; }
+.funnel-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 18px; }
+.funnel { display: flex; align-items: center; justify-content: center; gap: 0; min-width: 700px; }
+.funnel-step { text-align: center; position: relative; }
+.funnel-bar { height: 48px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%); padding: 0 28px 0 32px; }
+.funnel-step:first-child .funnel-bar { clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%); padding-left: 18px; border-radius: 6px 0 0 6px; }
+.funnel-step:last-child .funnel-bar { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10% 50%); padding-right: 18px; border-radius: 0 6px 6px 0; }
+.funnel-label { font-size: 11px; color: var(--gray-500); margin-top: 8px; max-width: 100px; margin-left: auto; margin-right: auto; line-height: 1.4; }
+.funnel-count { font-size: 18px; font-weight: 700; display: block; margin-top: 2px; color: var(--gray-700); }
+
+/* ─── TWO-PATH VISUAL ─── */
+.paths-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; margin-bottom: 8px; }
+.path-card { border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px; text-align: center; position: relative; background: var(--white); }
+.path-card .path-icon { font-size: 36px; margin-bottom: 12px; }
+.path-card h4 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 6px; }
+.path-card p { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+.path-card .path-arrow { display: flex; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.path-tag { display: inline-block; background: var(--gray-100); border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 600; color: var(--gray-600); }
+.path-or { display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; }
+@media (max-width: 768px) { .paths-wrap { grid-template-columns: 1fr; } }
+
+/* ─── TRANCHE TIMELINE ─── */
+.tranche-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-top: 16px; overflow-x: auto; }
+.tranche-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 18px; }
+.tranche-timeline { position: relative; min-width: 600px; padding: 20px 0; }
+.tranche-line { position: absolute; top: 50%; left: 40px; right: 40px; height: 3px; background: var(--gray-200); transform: translateY(-50%); }
+.tranche-nodes { display: flex; justify-content: space-between; position: relative; z-index: 1; padding: 0 20px; }
+.tranche-node { text-align: center; width: 120px; }
+.tranche-dot { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 14px; font-weight: 700; color: #fff; box-shadow: var(--shadow-md); }
+.tranche-dot.planned { background: var(--gray-400); }
+.tranche-dot.received { background: var(--green); }
+.tranche-dot.partial { background: var(--orange); }
+.tranche-amt { font-size: 14px; font-weight: 700; color: var(--gray-800); }
+.tranche-status { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+.tranche-date { font-size: 11px; color: var(--gray-500); margin-top: 4px; font-weight: 500; }
+
+/* ─── MONEY FLOW ─── */
+.flow-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; overflow-x: auto; }
+.flow-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 18px; }
+.flow-diagram { display: flex; align-items: center; justify-content: center; gap: 0; min-width: 600px; }
+.flow-node { text-align: center; padding: 16px 20px; border-radius: var(--radius); min-width: 130px; }
+.flow-node h5 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.flow-node p { font-size: 11px; opacity: 0.85; line-height: 1.4; }
+.flow-arrow { display: flex; flex-direction: column; align-items: center; padding: 0 6px; color: var(--gray-400); }
+.flow-arrow span { font-size: 18px; }
+.flow-arrow small { font-size: 10px; font-weight: 600; color: var(--orange); margin-top: 2px; }
+
+/* ─── RESOURCE ALLOC BARS ─── */
+.alloc-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-top: 16px; }
+.alloc-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 18px; }
+.alloc-row { display: flex; align-items: center; margin-bottom: 14px; }
+.alloc-name { width: 140px; flex-shrink: 0; font-size: 13px; font-weight: 500; color: var(--gray-700); }
+.alloc-bar-track { flex: 1; height: 28px; background: var(--gray-100); border-radius: 6px; display: flex; overflow: hidden; position: relative; }
+.alloc-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; letter-spacing: 0.3px; }
+.alloc-avail { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; color: var(--gray-400); }
+.alloc-pct { width: 50px; flex-shrink: 0; text-align: right; font-size: 12px; font-weight: 600; color: var(--gray-600); }
+
+/* ─── APPROVAL FLOW ─── */
+.approval-wrap { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px; margin-top: 16px; overflow-x: auto; }
+.approval-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 18px; }
+.approval-flow { display: flex; align-items: flex-start; justify-content: center; gap: 0; min-width: 700px; }
+.approval-step { text-align: center; width: 120px; }
+.approval-box { padding: 12px 8px; border-radius: var(--radius); border: 2px solid; margin-bottom: 6px; }
+.approval-box h5 { font-size: 12px; font-weight: 700; }
+.approval-box p { font-size: 10px; margin-top: 2px; }
+.approval-arrow { display: flex; align-items: center; padding-top: 12px; color: var(--gray-300); font-size: 16px; }
+.approval-reject { font-size: 10px; color: var(--red); font-weight: 600; margin-top: 4px; }
+
 /* ─── FLOWCHART ─── */
 .fc { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 32px; overflow-x: auto; }
 .fh { display: flex; align-items: flex-start; gap: 0; min-width: 900px; justify-content: center; }
@@ -421,7 +490,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
 <div class="ctn">
   <div class="sh fade-up">
     <h2>What is mGrant NUO?</h2>
-    <p>A purpose-built SaaS platform that gives NGOs a single, unified workspace to manage donors, grants, projects, compliance, and impact — end to end. Built on the Frappe Framework.</p>
+    <p>A purpose-built SaaS platform that gives NGOs a single, unified workspace to manage donors, grants, projects, compliance, and impact — end to end.</p>
   </div>
   <div class="cg">
     <div class="cd fade-up"><div class="ic ib">&#x1F4CA;</div><h3>Single Source of Truth</h3><p>Replace scattered spreadsheets and email threads with one platform. Every donor, every grant, every report — in one place, accessible from any browser.</p></div>
@@ -464,6 +533,19 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <h2>Fundraising CRM</h2>
     <p>The entry point for every NGO — a sales-style CRM purpose-built for grants and proposals.</p>
   </div>
+  <!-- PIPELINE FUNNEL -->
+  <div class="funnel-wrap fade-up">
+    <div class="funnel-title">Proposal Pipeline — From Lead to Grant</div>
+    <div class="funnel">
+      <div class="funnel-step"><div class="funnel-bar" style="background:var(--gray-500);width:170px;">Lead</div><div class="funnel-label">Donor identified<span class="funnel-count">120</span></div></div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:var(--maroon-light);width:150px;">Submitted</div><div class="funnel-label">Proposal sent<span class="funnel-count">85</span></div></div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:var(--maroon);width:130px;">Under Review</div><div class="funnel-label">Being evaluated<span class="funnel-count">52</span></div></div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:var(--orange);width:110px;">Shortlisted</div><div class="funnel-label">Due diligence<span class="funnel-count">28</span></div></div>
+      <div class="funnel-step"><div class="funnel-bar" style="background:var(--green);width:100px;">MoU Signed</div><div class="funnel-label">Becomes a Grant<span class="funnel-count">18</span></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:14px;text-align:center;">Illustrative numbers. Full funnel tracking — submitted, in progress, converted, and lost — with conversion rates at each stage.</p>
+  </div>
+
   <div class="cg">
     <div class="cd fade-up"><div class="ic ib">&#x1F465;</div><h3>Donor Master</h3>
     <ul><li>Central database of all donors and donor prospects</li><li>Donor segmentation by type, giving history, engagement level</li><li>Contact details, interaction history, communication log</li><li>Quick-add form + full profile view</li><li>Auto-assigned donor IDs (e.g., D-0037)</li></ul></div>
@@ -533,9 +615,23 @@ footer a { color: var(--orange-light); text-decoration: none; }
   <details class="fade-up">
   <summary><span style="font-size:17px;">&#x1F4B0;</span> Budget Utilisation — Two Paths <span class="ch">&#x25B6;</span></summary>
   <div class="db">
+  <div class="paths-wrap">
+    <div class="path-card" style="border-top:3px solid var(--orange);">
+      <div class="path-icon">&#x270D;&#xFE0F;</div>
+      <h4>Path 1 — Aggregate Reporting</h4>
+      <p>Manual monthly entry of utilisation against donor/grant/MoU budget heads. Ideal for smaller NGOs or grants where financial system integration isn't available.</p>
+      <div class="path-arrow"><span class="path-tag">Manual Entry</span><span class="path-tag">Monthly</span><span class="path-tag">Budget Head-wise</span></div>
+    </div>
+    <div class="path-card" style="border-top:3px solid var(--green);">
+      <div class="path-icon">&#x1F504;</div>
+      <h4>Path 2 — Financial System Integration</h4>
+      <p>Auto-sync from your accounting software. Master data and monthly expenses flow automatically.</p>
+      <div class="path-arrow"><span class="path-tag">Tally</span><span class="path-tag">VOLAC</span><span class="path-tag">SAP</span><span class="path-tag">Oracle</span><span class="path-tag">Any ERP</span></div>
+    </div>
+  </div>
   <ul>
-    <li><strong>Path 1 — Aggregate Reporting:</strong> Manual monthly entry of utilisation against donor/grant/MoU budget heads</li>
-    <li><strong>Path 2 — Financial System Integration:</strong> Auto-sync from accounting software
+    <li><strong>Path 1</strong> — Manual monthly entry of utilisation against donor/grant/MoU budget heads</li>
+    <li><strong>Path 2</strong> — Auto-sync from accounting software via canonical schema
       <ul>
         <li>Supported: <strong>Tally</strong>, <strong>VOLAC</strong>, <strong>SAP</strong></li>
         <li>Architecture supports Oracle, ERP, or any financial system via canonical schema</li>
@@ -563,6 +659,40 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <li><strong>Summary cards</strong> — Total Sanctioned, Total Planned, Total Received, Total Utilised, Unutilised Balance</li>
     <li><strong>Tranche notifications</strong> — Email + in-app alerts for upcoming payment dates</li>
   </ul>
+  <!-- TRANCHE TIMELINE VISUAL -->
+  <div class="tranche-wrap">
+    <div class="tranche-title">Illustrative Tranche &amp; Receipt Timeline</div>
+    <div class="tranche-timeline">
+      <div class="tranche-line"></div>
+      <div class="tranche-nodes">
+        <div class="tranche-node">
+          <div class="tranche-dot received">&#x2713;</div>
+          <div class="tranche-amt">&#x20B9;10L</div>
+          <div class="tranche-status" style="color:var(--green);font-weight:600;">Fully Received</div>
+          <div class="tranche-date">Apr 2025</div>
+        </div>
+        <div class="tranche-node">
+          <div class="tranche-dot partial">&#xBD;</div>
+          <div class="tranche-amt">&#x20B9;8L <span style="font-size:11px;color:var(--gray-400);font-weight:400;">of &#x20B9;12L</span></div>
+          <div class="tranche-status" style="color:var(--orange);font-weight:600;">Partial Receipt</div>
+          <div class="tranche-date">Jul 2025</div>
+        </div>
+        <div class="tranche-node">
+          <div class="tranche-dot received">&#x2713;</div>
+          <div class="tranche-amt">&#x20B9;16L</div>
+          <div class="tranche-status" style="color:var(--green);font-weight:600;">2 Tranches Combined</div>
+          <div class="tranche-date">Oct 2025</div>
+        </div>
+        <div class="tranche-node">
+          <div class="tranche-dot planned">&#x23F3;</div>
+          <div class="tranche-amt">&#x20B9;10L</div>
+          <div class="tranche-status">Planned</div>
+          <div class="tranche-date">Jan 2026</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:8px;">Supports partial payments, combined tranches, and flexible 1:many mapping between planned tranches and actual receipts.</p>
+  </div>
   </div>
   </details>
 </div>
@@ -677,6 +807,29 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <h2>Sub-Granting &amp; Vendor Payments</h2>
     <p>Multiple models for distributing funds — from pass-through grants to procurement and capex.</p>
   </div>
+  <!-- MONEY FLOW DIAGRAM -->
+  <div class="flow-wrap fade-up">
+    <div class="flow-title">Fund Distribution — How Money Flows Through Sub-Granting</div>
+    <div class="flow-diagram">
+      <div class="flow-node" style="background:var(--maroon);color:#fff;"><h5>Donor</h5><p>&#x20B9;1 Cr sanctioned</p></div>
+      <div class="flow-arrow"><span>&#x2794;</span><small>100%</small></div>
+      <div class="flow-node" style="background:var(--orange);color:#fff;"><h5>Primary NGO</h5><p>Receives full grant</p></div>
+      <div class="flow-arrow"><span>&#x2794;</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="flow-node" style="background:var(--green-light);color:var(--green);border:1px solid var(--green);min-width:140px;"><h5>Sub-Grantee NGOs</h5><p>Pass-through (90%)</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="flow-node" style="background:#DBEAFE;color:var(--blue);border:1px solid var(--blue);min-width:140px;"><h5>Self-Implementation</h5><p>Direct execution (30%)</p></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="flow-node" style="background:#F3E8FF;color:#7C3AED;border:1px solid #7C3AED;min-width:140px;"><h5>Vendors / Capex</h5><p>Procurement &amp; services</p></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:14px;text-align:center;">Multiple models supported — pass-through, partial implementation, procurement — all tracked within the same grant structure.</p>
+  </div>
+
   <div class="cg">
     <div class="cd fade-up"><div class="ic ib">&#x1F4B8;</div><h3>Pass-Through Model</h3>
     <ul><li>NGO keeps 5&#x2013;10% admin fees</li><li>Passes 90%+ to sub-grantee NGOs as grants</li><li>Track sub-grants, disbursements, and utilisation per partner</li></ul></div>
@@ -773,6 +926,49 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <li><strong>Record-level and field-level RBAC</strong> — fine-grained permissions</li>
     <li>Role hierarchies and group permissions</li>
   </ul>
+  <!-- APPROVAL WORKFLOW VISUAL -->
+  <div class="approval-wrap">
+    <div class="approval-title">Illustrative Approval Flow — Budget Utilisation Report</div>
+    <div class="approval-flow">
+      <div class="approval-step">
+        <div class="approval-box" style="border-color:var(--gray-400);background:var(--gray-50);">
+          <h5 style="color:var(--gray-600);">&#x1F4DD; Draft</h5>
+          <p style="color:var(--gray-400);">PM creates report</p>
+        </div>
+      </div>
+      <div class="approval-arrow">&#x2794;</div>
+      <div class="approval-step">
+        <div class="approval-box" style="border-color:var(--orange);background:#FEF3E2;">
+          <h5 style="color:var(--orange);">&#x1F4CB; Submitted</h5>
+          <p style="color:var(--orange);">Pending review</p>
+        </div>
+      </div>
+      <div class="approval-arrow">&#x2794;</div>
+      <div class="approval-step">
+        <div class="approval-box" style="border-color:var(--blue);background:#DBEAFE;">
+          <h5 style="color:var(--blue);">&#x1F464; Level 1</h5>
+          <p style="color:var(--blue);">Manager reviews</p>
+        </div>
+        <div class="approval-reject">&#x2193; Reject &#x2192; Back to PM</div>
+      </div>
+      <div class="approval-arrow">&#x2794;</div>
+      <div class="approval-step">
+        <div class="approval-box" style="border-color:#7C3AED;background:#F3E8FF;">
+          <h5 style="color:#7C3AED;">&#x1F464; Level 2</h5>
+          <p style="color:#7C3AED;">Finance reviews</p>
+        </div>
+        <div class="approval-reject">&#x2193; Reject &#x2192; Back to PM</div>
+      </div>
+      <div class="approval-arrow">&#x2794;</div>
+      <div class="approval-step">
+        <div class="approval-box" style="border-color:var(--green);background:var(--green-light);">
+          <h5 style="color:var(--green);">&#x2705; Approved</h5>
+          <p style="color:var(--green);">Sent to donor</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:12px;text-align:center;">Approval levels are configurable per module. Rejection sends it back with comments. Auto-notifications at every step.</p>
+  </div>
   </div>
   </details>
 
@@ -789,6 +985,37 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <li><strong>Cross-grant resource view:</strong> See who is allocated where, at what percentage, across all active grants — a single view for leadership to manage capacity</li>
     <li><strong>Hiring requirement forecast:</strong> If a grant has been approved and has a start date, but the required roles are unfilled, the system flags hiring requirements — giving HR a lead time to recruit before the grant begins <span class="upcoming">UPCOMING</span></li>
   </ul>
+  <!-- RESOURCE ALLOCATION VISUAL -->
+  <div class="alloc-wrap">
+    <div class="alloc-title">Illustrative Resource Allocation View</div>
+    <div class="alloc-row">
+      <div class="alloc-name">Priya Sharma<br><span style="font-size:11px;color:var(--gray-400);">Programme Director</span></div>
+      <div class="alloc-bar-track">
+        <div class="alloc-seg" style="width:30%;background:var(--maroon);">Health Grant 30%</div>
+        <div class="alloc-seg" style="width:40%;background:var(--orange);">Education Grant 40%</div>
+        <div class="alloc-seg" style="width:20%;background:var(--blue);">WASH Grant 20%</div>
+        <div class="alloc-avail" style="width:10%;">10%</div>
+      </div>
+      <div class="alloc-pct" style="color:var(--green);">90%</div>
+    </div>
+    <div class="alloc-row">
+      <div class="alloc-name">Rahul Verma<br><span style="font-size:11px;color:var(--gray-400);">Trainer</span></div>
+      <div class="alloc-bar-track">
+        <div class="alloc-seg" style="width:100%;background:var(--maroon);">Health Grant 100%</div>
+      </div>
+      <div class="alloc-pct" style="color:var(--orange);">100%</div>
+    </div>
+    <div class="alloc-row">
+      <div class="alloc-name">Anita Desai<br><span style="font-size:11px;color:var(--gray-400);">Finance Lead</span></div>
+      <div class="alloc-bar-track">
+        <div class="alloc-seg" style="width:50%;background:var(--orange);">Education Grant 50%</div>
+        <div class="alloc-seg" style="width:25%;background:var(--green);">Livelihood Grant 25%</div>
+        <div class="alloc-avail" style="width:25%;">25% available</div>
+      </div>
+      <div class="alloc-pct" style="color:var(--green);">75%</div>
+    </div>
+    <p style="font-size:12px;color:var(--gray-400);margin-top:12px;">System prevents over-allocation beyond 100%. Available balance is shown in real-time during allocation.</p>
+  </div>
   </div>
   </details>
 </div>
@@ -883,7 +1110,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
       <div class="fa">&#x2794;</div>
       <div class="fs" style="width:130px;"><div class="ci" style="background:var(--green);width:46px;height:46px;font-size:17px;">&#x1F50C;</div><div class="sl">MCP Server</div><div class="sd">34 tools, RBAC</div></div>
       <div class="fa">&#x2794;</div>
-      <div class="fs" style="width:130px;"><div class="ci" style="background:var(--blue);width:46px;height:46px;font-size:17px;">&#x1F4BE;</div><div class="sl">mGrant DB</div><div class="sd">Frappe REST API</div></div>
+      <div class="fs" style="width:130px;"><div class="ci" style="background:var(--blue);width:46px;height:46px;font-size:17px;">&#x1F4BE;</div><div class="sl">mGrant DB</div><div class="sd">REST API</div></div>
       <div class="fa">&#x2794;</div>
       <div class="fs" style="width:130px;"><div class="ci" style="background:#7C3AED;width:46px;height:46px;font-size:17px;">&#x2728;</div><div class="sl">Answer</div><div class="sd">Instant, contextual</div></div>
     </div>
@@ -1024,7 +1251,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
   <div class="sh fade-up">
     <div class="section-number">18&#x2013;20</div>
     <h2>Masters, Configuration &amp; Platform Capabilities</h2>
-    <p>Built on the Frappe Framework — low-code, configurable, enterprise-grade.</p>
+    <p>Low-code, configurable, enterprise-grade platform architecture.</p>
   </div>
 
   <details open class="fade-up">
@@ -1044,20 +1271,20 @@ footer a { color: var(--orange-light); text-decoration: none; }
   </details>
 
   <details class="fade-up">
-  <summary><span style="font-size:17px;">&#x2699;</span> Platform Capabilities (Frappe Framework) <span class="ch">&#x25B6;</span></summary>
+  <summary><span style="font-size:17px;">&#x2699;</span> Platform Capabilities <span class="ch">&#x25B6;</span></summary>
   <div class="db">
   <ul>
-    <li><strong>Low-Code / No-Code:</strong> DocType designer with drag-and-drop, 50+ field types, custom fields without code, automatic UI generation from metadata</li>
+    <li><strong>Low-Code / No-Code:</strong> Visual form designer with drag-and-drop, 50+ field types, custom fields without code, automatic UI generation from metadata</li>
     <li><strong>Form Builder:</strong> Configurable forms for proposals, reports, data collection — no developer needed</li>
     <li><strong>Workflow Engine:</strong> State-based workflows, conditional transitions, document lifecycle (Draft &#x2192; Submitted &#x2192; Approved &#x2192; Cancelled), configurable per module</li>
-    <li><strong>Document Generation:</strong> Jinja2-based PDF/print formats, multiple templates per document type, print format builder, org branding support</li>
-    <li><strong>RBAC:</strong> DocType-level, record-level, and field-level permissions; role hierarchies and user groups; dynamic updates without downtime</li>
-    <li><strong>API Framework:</strong> Auto-generated REST APIs for all DocTypes, token-based auth, OAuth 2.0, webhooks, custom RPC endpoints</li>
+    <li><strong>Document Generation:</strong> Template-based PDF/print formats, multiple templates per document type, print format builder, org branding support</li>
+    <li><strong>RBAC:</strong> Module-level, record-level, and field-level permissions; role hierarchies and user groups; dynamic updates without downtime</li>
+    <li><strong>API Framework:</strong> Auto-generated REST APIs for all modules, token-based auth, OAuth 2.0, webhooks, custom RPC endpoints</li>
     <li><strong>Report Builder:</strong> No-code report creation, dynamic filtering/grouping/aggregation, custom SQL reports, multiple views (tabular, calendar, Gantt, Kanban, tree)</li>
     <li><strong>Email &amp; Notifications:</strong> Email integration with document lifecycle, templates, automation, in-app notifications, digest features</li>
     <li><strong>Multi-Tenancy:</strong> Multi-site deployment, tenant isolation via database, shared infrastructure with separate schemas</li>
     <li><strong>Audit Trail:</strong> Document change tracking, version history, timeline view with emails/comments/edits</li>
-    <li><strong>Background Jobs:</strong> Job queue (Python RQ), scheduled task execution, async processing, cron integration</li>
+    <li><strong>Background Jobs:</strong> Built-in job queue, scheduled task execution, async processing, cron integration</li>
     <li><strong>Real-Time:</strong> Socket.IO for live event propagation, real-time form updates across users</li>
   </ul>
   </div>
@@ -1106,7 +1333,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
     <tr><td>AI data chat + RFP scouting</td><td class="cx">&#x2717;</td><td class="cx">&#x2717;</td><td class="ck">MCP (34 tools)</td></tr>
     <tr><td>Sub-granting + vendor payments</td><td class="cx">Manual</td><td class="cx">&#x2717;</td><td class="ck">Multi-model</td></tr>
     <tr><td>Mobile field data (mForm)</td><td class="cx">&#x2717;</td><td class="cx">&#x2717;</td><td class="ck">Native + 3rd party</td></tr>
-    <tr><td>Low-code configuration</td><td class="cx">&#x2717;</td><td class="cx">Partial</td><td class="ck">Frappe framework</td></tr>
+    <tr><td>Low-code configuration</td><td class="cx">&#x2717;</td><td class="cx">Partial</td><td class="ck">Native low-code engine</td></tr>
     </tbody>
     </table>
   </div>
