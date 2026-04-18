@@ -168,6 +168,32 @@ body {
 .stat-pill .n { font-size: 22px; font-weight: 700; color: var(--orange-light); }
 .stat-pill .l { font-size: 13px; opacity: 0.8; font-weight: 400; }
 
+/* ─── FLOATING BACK BUTTON ─── */
+.float-back {
+  position: fixed;
+  top: 14px;
+  right: 24px;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--maroon);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+.float-back:hover {
+  background: var(--maroon-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
 /* ─── NAV ─── */
 nav.toc {
   position: sticky;
@@ -436,6 +462,7 @@ footer a { color: var(--orange-light); text-decoration: none; }
   .stat-pill { padding: 6px 14px; }
   .stat-pill .n { font-size: 16px; }
   nav.toc a { padding: 10px 8px; font-size: 11px; }
+  .float-back { top: auto; bottom: 20px; right: 16px; font-size: 11px; padding: 10px 16px; }
   .cg { grid-template-columns: 1fr; }
   .ig2 { grid-template-columns: 1fr 1fr; }
   section { padding: 28px 0; }
@@ -467,9 +494,11 @@ footer a { color: var(--orange-light); text-decoration: none; }
   </div>
 </div>
 
+<!-- FLOATING BACK BUTTON -->
+<a href="https://sunandan89.github.io/mgrant-nuo/" class="float-back">&#x2190; Executive Summary</a>
+
 <!-- NAV -->
 <nav class="toc" id="toc">
-  <a href="https://sunandan89.github.io/mgrant-nuo/" style="color:#fff;font-weight:600;background:var(--maroon);border-radius:100px;padding:8px 18px;margin:6px 8px 6px 0;font-size:12px;border-bottom:none;letter-spacing:0.3px;">&#x2190; Executive Summary</a>
   <a href="#overview">Overview</a>
   <a href="#crm">Fundraising CRM</a>
   <a href="#grant">Grant &amp; Finance</a>
